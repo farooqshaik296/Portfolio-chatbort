@@ -1,0 +1,80 @@
+SHAIK FAROOQ  
+B.Tech CSE from DSU Trichy | Seeking Data Analyst role  
+[farooq20903@gmail.com](mailto:farooq20903@gmail.com)  
++91 6300288724  
+Trichy, India  
+LinkedIn | GitHub
+
+*EDUCATION*  
+*B.Tech in Computer Science and Engineering*  
+Dhanalakshmi Srinivasan University, Trichy  
+May 2025  
+Trichy, India  
+• CGPA: 7.5/10
+
+*Intermediate*  
+Narayana Junior College  
+April 2021  
+Ongole, India  
+• CGPA: 8.6/10
+
+*EXPERIENCE*  
+*Data Analyst Intern*  
+Yoshops  
+Nov 2023 – Jan 2024  
+Remote  
+• Conducted data analysis on online shopping sales data to identify key trends and patterns.  
+• Utilized Python and Pandas for data preprocessing, cleaning, and feature engineering.  
+• Created data visualizations and interactive dashboards to communicate insights effectively.  
+• Collaborated with cross-functional teams to extract actionable insights and optimize sales strategies.
+
+*TECHNICAL SKILLS*  
+*Programming Languages*  
+Python SQL
+
+*Data Analysis*  
+Data Cleaning Data Visualization Statistical Analysis  
+Pandas NumPy Matplotlib Seaborn Excel  
+Exploratory Data Analysis (EDA) Power BI
+
+*Machine Learning*  
+Supervised Learning Unsupervised Learning Scikit-Learn  
+XGBoost Random Forest SVM Clustering  
+Dimensionality Reduction
+
+*Tools & Technologies*  
+Git Jupyter VS Code MongoDB SQL Server
+
+*PROJECTS*  
+*Google Playstore EDA*  
+• Processed and cleaned data to handle missing values, duplicates, and inconsistencies.  
+• Analyzed key metrics such as app ratings, review counts, and installation numbers to understand their distribution and relationships.  
+• Created comprehensive visualizations using Matplotlib and Seaborn to illustrate trends, correlations, and outliers.  
+• Performed sentiment analysis on user reviews to gauge user satisfaction and identify common issues.  
+• Skills: Python SQL PowerBI
+
+*COVID-19 Exploratory Data Analysis*  
+• Processed and cleaned COVID-19 datasets to ensure data quality and accuracy.  
+• Analyzed global COVID-19 data to understand the spread and impact of the virus across different countries.  
+• Created sophisticated visualizations to highlight key findings and patterns in the data.  
+• Examined the socioeconomic impact of COVID-19, identifying correlations between virus spread and socioeconomic factors.  
+• Skills: Python Pandas NumPy Matplotlib Seaborn Jupyter Notebook
+
+*Trading Results Display*  
+• Developed a web application to display trading results using historical and real-time data.  
+• Designed an intuitive user interface with Bootstrap for displaying trading metrics and visualizations.  
+• Implemented efficient data handling and storage using SQLite.  
+• Created sophisticated visualizations to highlight key findings and patterns in the trading data.  
+• Skills: Python Flask SQLite Bootstrap Data Analysis Data Visualization
+
+*LEADERSHIP*  
+*Vice President, AI Club*  
+Dhanalakshmi Srinivasan University, Trichy  
+Sep 2023 – Present  
+Trichy, India  
+• Spearheaded AI workshops and seminars, and coordinated with industry professionals for guest lectures and hands-on sessions.  
+• Led AI-based projects, managed club activities, and organized competitions and hackathons.
+
+*Links*  
+[LinkedIn](https://www.linkedin.com/in/shaik-farooq-ab2b20228/)  
+[GitHub](https://github.com/farooqshaik296)  

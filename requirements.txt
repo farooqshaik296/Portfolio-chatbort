@@ -1,0 +1,4 @@
+llamaapi
+flask
+PyPDF2
+gunicorn
