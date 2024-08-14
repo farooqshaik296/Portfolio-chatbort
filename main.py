@@ -5,7 +5,19 @@ from llamaapi import LlamaAPI
 app = Flask(__name__)
 
 # Initialize the LlamaAPI SDK
-llama = LlamaAPI("LA-ae1c878f9f364c11be3bd2bf1a5ec0c07c3ce86456bc46e284987fe1cccb4af0")
+llama = LlamaAPI("LA-0d38025434a14388b88205d6aff695ec15b36da9142440eb9cce0017f0fd5f2c")
+
+# Function to read the resume text from a file
+def read_resume_text(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            return file.read()
+    except Exception as e:
+        return str(e)
+
+# Path to your resume text file
+resume_txt_path = "assets/far.txt"  # Update the path if necessary
+resume_text = read_resume_text(resume_txt_path)
 
 # API endpoint to handle questions
 @app.route('/ask', methods=['POST'])
@@ -19,19 +31,26 @@ def ask_question():
     # Build the API request
     api_request_json = {
         "messages": [
-            {"role": "system", "content": "You are an AI assistant that answers questions based on a resume"},
-            {"role": "user", "content": "Here is the resume: SHAIK FAROOQ\nB.Tech CSE from DSU Trichy | Seeking Data Analyst role\n[farooq20903@gmail.com](mailto:farooq20903@gmail.com)\n+91 6300288724\nTrichy, India\nLinkedIn | GitHub\n\nEDUCATION\nB.Tech in Computer Science and Engineering\nDhanalakshmi Srinivasan University, Trichy\nMay 2025\nTrichy, India\nCGPA: 7.5/10\n\nIntermediate\nNarayana Junior College\nApril 2021\nOngole, India\nCGPA: 8.6/10\n\nEXPERIENCE\nData Analyst Intern\nYoshops\nNov 2023 – Jan 2024\nRemote\n Conducted data analysis on online shopping sales data to identify key trends and patterns.\n Utilized Python and Pandas for data preprocessing, cleaning, and feature engineering.\n Created data visualizations and interactive dashboards to communicate insights effectively.\n Collaborated with cross-functional teams to extract actionable insights and optimize sales strategies.\n\nTECHNICAL SKILLS\nProgramming Languages\nPython SQL\n\nData Analysis\nData Cleaning Data Visualization Statistical Analysis\nPandas NumPy Matplotlib Seaborn Excel\nExploratory Data Analysis (EDA) Power BI\n\nMachine Learning\nSupervised Learning Unsupervised Learning Scikit-Learn\nXGBoost Random Forest SVM Clustering\nDimensionality Reduction\n\nTools & Technologies\nGit Jupyter VS Code MongoDB SQL Server\n\nPROJECTS\nGoogle Playstore EDA\n Processed and cleaned data to handle missing values, duplicates, and inconsistencies.\n Analyzed key metrics such as app ratings, review counts, and installation numbers to understand their distribution and relationships.\n Created comprehensive visualizations using Matplotlib and Seaborn to illustrate trends, correlations, and outliers.\n Performed sentiment analysis on user reviews to gauge user satisfaction and identify common issues.\n Skills: Python SQL PowerBI\n\nCOVID-19 Exploratory Data Analysis\n Processed and cleaned COVID-19 datasets to ensure data quality and accuracy.\n Analyzed global COVID-19 data to understand the spread and impact of the virus across different countries.\n Created sophisticated visualizations to highlight key findings and patterns in the data.\n Examined the socioeconomic impact of COVID-19, identifying correlations between virus spread and socioeconomic factors.\n Skills: Python Pandas NumPy Matplotlib Seaborn Jupyter Notebook\n\nTrading Results Display\n Developed a web application to display trading results using historical and real-time data.\n Designed an intuitive user interface with Bootstrap for displaying trading metrics and visualizations.\n Implemented efficient data handling and storage using SQLite.\n Created sophisticated visualizations to highlight key findings and patterns in the trading data.\n Skills: Python Flask SQLite Bootstrap Data Analysis Data Visualization\n\nLEADERSHIP\nVice President, AI Club\nDhanalakshmi Srinivasan University, Trichy\nSep 2023 – Present\nTrichy, India\n Spearheaded AI workshops and seminars, and coordinated with industry professionals for guest lectures and hands-on sessions.\n Led AI-based projects, managed club activities, and organized competitions and hackathons.\n\nLinks\n[LinkedIn](https://www.linkedin.com/in/shaik-farooq-ab2b20228/)\n[GitHub](https://github.com/farooqshaik296)\n[COVID-19 Data Analysis Project](https://github.com/farooqshaik296/covid19_data_analysis)\n[Trading Results Project](https://github.com/farooqshaik296/trading_results)\n\n---\nLet me know if you need any further adjustments or help!,my name is shaik farooq"},
+            {"role": "system", "content": "You are an AI assistant that answers questions based on a resume."},
+            {"role": "user", "content": f"Here is the resume: {resume_text}"},
             {"role": "user", "content": question},
         ],
         "stream": False,
     }
 
-    # Execute the Request
-    response = llama.run(api_request_json)
-
-    # Extract and return the answer
-    answer = response.json()['choices'][0]['message']['content']
-    return jsonify({'answer': answer})
+    try:
+        # Execute the request
+        response = llama.run(api_request_json)
+        response_data = response.json()
+        
+        # Debugging: Print response for inspection
+        print("API Response:", response_data)
+        
+        # Extract and return the answer
+        answer = response_data.get('choices', [{}])[0].get('message', {}).get('content', 'No response content')
+        return jsonify({'answer': answer})
+    except Exception as e:
+        return jsonify({'error': f'An error occurred: {str(e)}'}), 500
 
 # Frontend HTML template
 HTML_TEMPLATE = '''
@@ -44,7 +63,7 @@ HTML_TEMPLATE = '''
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            background-color: #f0f2f5;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -52,22 +71,22 @@ HTML_TEMPLATE = '''
             margin: 0;
         }
         .chat-container {
-            width: 375px;
-            max-width: 100%;
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
+            width: 100%;
+            max-width: 500px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
         }
         .chat-header {
             background-color: #007bff;
-            color: white;
+            color: #ffffff;
             padding: 15px;
             text-align: center;
             font-size: 1.2rem;
             font-weight: bold;
+            border-bottom: 1px solid #e0e0e0;
         }
         .chat-messages {
             padding: 20px;
@@ -75,10 +94,9 @@ HTML_TEMPLATE = '''
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            gap: 10px;
         }
         .message {
-            margin-bottom: 15px;
             display: flex;
             align-items: flex-end;
         }
@@ -89,25 +107,29 @@ HTML_TEMPLATE = '''
             justify-content: flex-start;
         }
         .message p {
-            max-width: 70%;
+            max-width: 80%;
             padding: 10px 15px;
             border-radius: 20px;
             background-color: #e4e6eb;
             margin: 0;
             font-size: 0.9rem;
+            word-wrap: break-word;
         }
         .message.user p {
             background-color: #007bff;
-            color: white;
+            color: #ffffff;
+            border-radius: 20px 20px 0 20px;
         }
         .message.bot p {
             background-color: #f1f0f0;
-            color: black;
+            color: #333333;
+            border-radius: 20px 20px 20px 0;
         }
         .input-container {
             display: flex;
             padding: 10px;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #e0e0e0;
+            background-color: #ffffff;
         }
         input[type="text"] {
             flex: 1;
@@ -190,6 +212,14 @@ HTML_TEMPLATE = '''
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             });
         }
+
+        // Listen for Enter key press
+        document.getElementById('question').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission
+                askQuestion();
+            }
+        });
     </script>
 </body>
 </html>
