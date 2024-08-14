@@ -1,4 +1,4 @@
-SHAIK FAROOQ  
+Shaik.Farooq
 B.Tech CSE from DSU Trichy | Seeking Data Analyst role  
 [farooq20903@gmail.com](mailto:farooq20903@gmail.com)  
 +91 6300288724  
@@ -21,7 +21,7 @@ Ongole, India
 *EXPERIENCE*  
 *Data Analyst Intern*  
 Yoshops  
-Nov 2023 – Jan 2024  
+Nov 2023 to Jan 2024  
 Remote  
 • Conducted data analysis on online shopping sales data to identify key trends and patterns.  
 • Utilized Python and Pandas for data preprocessing, cleaning, and feature engineering.  
